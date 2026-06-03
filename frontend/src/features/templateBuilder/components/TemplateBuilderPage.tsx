@@ -18,6 +18,7 @@ import { TemplateFieldInspector } from './TemplateFieldInspector';
 import { TemplateFieldsSidebar } from './TemplateFieldsSidebar';
 import { TemplatePreviewPanel } from './TemplatePreviewPanel';
 import { TemplateValidationPanel } from './TemplateValidationPanel';
+import { DocxImportViewer } from '../docx-import/DocxImportViewer';
 
 const DOCUMENT_TYPE = 'order_vacation';
 
@@ -268,6 +269,8 @@ export function TemplateBuilderPage() {
         />
 
         {apiError ? <div className="error-banner">{apiError}</div> : null}
+
+        <DocxImportViewer onStatusChange={setStatusMessage} />
 
         <div className="builder-grid">
           <TemplateFieldsSidebar

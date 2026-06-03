@@ -216,6 +216,204 @@ button:disabled {
   font-size: 13px;
 }
 
+.docx-import-viewer {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.docx-import-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.docx-import-header h2 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.docx-import-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.docx-file-name {
+  max-width: min(42vw, 420px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.docx-upload-zone {
+  position: relative;
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 10px;
+  align-items: center;
+  padding: 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+  background: #f9fbfc;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.docx-upload-zone input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.docx-upload-zone svg {
+  grid-row: 1 / 3;
+  color: var(--accent);
+}
+
+.docx-upload-zone span {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.25;
+}
+
+.docx-upload-zone small {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.docx-upload-zone:hover,
+.docx-upload-zone:focus-within {
+  border-color: var(--accent);
+  background: #f1f8f9;
+}
+
+.docx-import-state,
+.docx-import-error,
+.docx-import-warning {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 9px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.docx-import-state {
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.docx-import-error {
+  background: #fff1f0;
+  color: var(--danger);
+}
+
+.docx-import-warning {
+  background: #fff7e8;
+  color: var(--warning);
+}
+
+.spin-icon {
+  animation: spin 0.8s linear infinite;
+}
+
+.docx-preview-shell {
+  max-height: min(76vh, 920px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 12px;
+  overflow: auto;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #dfe5ea;
+}
+
+.docx-page {
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid #c5ced6;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 16px 42px rgba(30, 42, 52, 0.18);
+}
+
+.docx-page-content {
+  min-height: inherit;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.docx-paragraph {
+  overflow-wrap: anywhere;
+}
+
+.docx-run {
+  white-space: pre-wrap;
+}
+
+.docx-tab {
+  display: inline-block;
+  width: 32px;
+}
+
+.docx-image {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.docx-image-placeholder {
+  display: inline-flex;
+  padding: 2px 6px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.docx-table {
+  max-width: 100%;
+  margin: 10px 0 14px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.docx-table-cell {
+  min-width: 44px;
+  padding: 6px 8px;
+  border: 1px solid #9aa7b3;
+  vertical-align: top;
+}
+
+.docx-table-cell .docx-paragraph:last-child {
+  margin-bottom: 0;
+}
+
 .builder-grid {
   min-height: calc(100vh - 134px);
   display: grid;
@@ -642,6 +840,12 @@ button.template-field-chip {
   font-size: 12px;
 }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 1180px) {
   .builder-grid {
     grid-template-columns: minmax(220px, 260px) minmax(420px, 1fr);
@@ -680,6 +884,14 @@ button.template-field-chip {
   .status-pill {
     max-width: none;
     text-align: left;
+  }
+
+  .docx-import-header {
+    flex-direction: column;
+  }
+
+  .docx-file-name {
+    max-width: 100%;
   }
 
   .builder-grid {
@@ -721,5 +933,17 @@ button.template-field-chip {
   .document-page {
     padding: 32px 18px;
   }
-}
 
+  .docx-import-viewer,
+  .docx-preview-shell {
+    padding: 10px;
+  }
+
+  .docx-upload-zone {
+    grid-template-columns: 1fr;
+  }
+
+  .docx-upload-zone svg {
+    grid-row: auto;
+  }
+}
